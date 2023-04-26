@@ -5,17 +5,22 @@ namespace Crellan\DigitalCep;
 
 class Search
 {
-    private $url = "https://viacep.com.br/ws/";
+    private $urlViaCep = "https://viacep.com.br/ws/";
+    private $urlWideNet = "https://cdn.apicep.com/file/apicep/";
 
     public function getAddresFromZipCode(string $zipCode): array
     {
-        $zipCode = preg_replace('/[^0-9]/im', '', $zipCode);
 
-        $get = file_get_contents($this->url . $zipCode . "/json");
+        $zipCodeFiltred = preg_replace('/[^0-9]/im', '', $zipCode);
 
-        print_r($get);
 
-        return (array)json_decode($get);
+        if (is_array($get = json_decode(file_get_contents($this->urlViaCep . $zipCodeFiltred . "/json"), true))) {
+            $data = $get;
+        } else if (is_array($get = json_decode(file_get_contents($this->urlWideNet . $zipCode . ".json"), true))) {
+            $data = $get;
+        }
+
+        return $get;
     }
 }
 
