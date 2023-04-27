@@ -21,14 +21,10 @@ class Search
         $zipCodeFiltred = preg_replace('/[^0-9]/im', '', $zipCode);
         if (strlen($zipCodeFiltred) === 8) {
             $formatedCep = substr_replace($zipCodeFiltred, "-", 5, 0);
+            return $formatedCep;
         } else {
-            $formatedCep = $zipCode;
+            return $zipCode;
         }
-        return $formatedCep;
-    }
-
-    public function cepTreatment($zipCode)
-    {
     }
 
     public function getAddresFromZipCode(string $zipCode): array

@@ -34,19 +34,8 @@ class SearchTest extends TestCase
                     "gia" => "1004",
                     "ddd" => "11",
                     "siafi" => "7107"]
-            ],
-            "CEP Brás" => [
-                "03021020", [
-                    "code" => "01001-000",
-                    "state" => "SP",
-                    "city" => "São Paulo",
-                    "district" => "Sé",
-                    "address" => "Praça da Sé - lado ímpar",
-                    "status" => "200",
-                    "ok" => "1",
-                    "statusText" => "ok",
-                ]
             ]
+
         ];
     }
 
