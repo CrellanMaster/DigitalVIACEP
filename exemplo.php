@@ -6,6 +6,6 @@ use \Crellan\DigitalCep\Search;
 
 $busca = new Search;
 
-$resultado = $busca->getAddresFromZipCode('00000-000');
+$resultado = $busca->getAddresFromZipCode('03021‑020');
 
 print_r($resultado);
